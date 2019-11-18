@@ -1,3 +1,32 @@
 <resources>
     <string name="app_name">Weather App</string>
+    <string name="something_gone_wrong">Something went wrong</string>
+
+    <!-- Daily Weather/Home Screen -->
+    <string name="placeholder_location">BANGKOK, TH</string>
+    <string name="placeholder_lastUpdateTime">19 NOVEMBER 2019, 20:08 PM</string>
+
+    <string name="placeholder_weatherStatus">Clear Sky</string>
+    <string name="placeholder_averageTemp">29°C</string>
+    <string name="placeholder_minTemp">Min Temp: 05:05 AM</string>
+    <string name="placeholder_maxTemp">Max Temp: 05:05 PM</string>
+    <string name="daily_sunrise">Sunrise</string>
+    <string name="placeholder_sunriseTime">06:40 AM</string>
+    <string name="daily_sunset">Sunset</string>
+    <string name="placeholder_sunsetTime">06:40 AM</string>
+
+    <string name="daily_windSpeed">Wind</string>
+    <string name="placeholder_windSpeed">0.36</string>
+    <string name="daily_pressure">Pressure</string>
+    <string name="placeholder_pressure">1011</string>
+    <string name="daily_humidity">Humidity</string>
+    <string name="placeholder_humidity">70</string>
+    <string name="credit_createBy">Created By</string>
+    <string name="credit_ICKMITL">ICKMITL</string>
+
+    <!-- Setting Screen -->
+    <string name="title_setting">Setting</string>
+
+    <string name="setting_language">Language</string>
+
 </resources>
