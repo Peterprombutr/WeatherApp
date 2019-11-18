@@ -58,13 +58,16 @@ public class MainActivity extends AppCompatActivity {
             case MotionEvent.ACTION_UP:
                 x2 = touchEvent.getX();
                 y2 = touchEvent.getY();
-                if(x1 <= x2){
+                if(x1 <= x2 + 200){
                     Intent i = new Intent(MainActivity.this, SwipeLeftSetting.class);
                     startActivity(i);
                 }
-                else if(x1 >= x2){
+                else if(x1 >= x2 + 200){
                     Intent i = new Intent(MainActivity.this, SwipeRight5Days.class);
                     startActivity(i);
+                }
+                if(y1 <= y2){
+                    new weatherTask().execute(); //Refresh Shit
                 }
                 break;
         }

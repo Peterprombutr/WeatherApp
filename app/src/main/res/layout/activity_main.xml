@@ -21,13 +21,13 @@
                 android:id="@+id/address"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="24dp"
+                android:textSize="24sp"
                 android:text="BANGKOK, TH"/>
             <TextView
                 android:id="@+id/updated_at"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="14dp"
+                android:textSize="14sp"
                 android:text="19 NOVEMBER 2019, 20:08 PM"/>
         </LinearLayout>
 
@@ -43,14 +43,14 @@
                 android:id="@+id/status"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="18dp"
+                android:textSize="18sp"
                 android:layout_gravity="center"
                 android:text="Clear Sky"/>
             <TextView
                 android:id="@+id/temp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="90dp"
+                android:textSize="90sp"
                 android:fontFamily="sans-serif-thin"
                 android:layout_gravity="center"
                 android:text="29°C"/>
@@ -109,13 +109,13 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="12dp"
+                        android:textSize="12sp"
                         android:text="Sunrise"/>
                     <TextView
                         android:id="@+id/sunrise"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="14dp"
+                        android:textSize="14sp"
                         android:text="06:40 AM"/>
                 </LinearLayout>
                 <Space
@@ -140,13 +140,13 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="12dp"
+                        android:textSize="12sp"
                         android:text="Sunset"/>
                     <TextView
                         android:id="@+id/sunset"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="14dp"
+                        android:textSize="14sp"
                         android:text="06:40 AM"/>
                 </LinearLayout>
                 <Space
@@ -171,13 +171,13 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="12dp"
+                        android:textSize="12sp"
                         android:text="Wind"/>
                     <TextView
                         android:id="@+id/wind"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="14dp"
+                        android:textSize="14sp"
                         android:text="06:40 AM"/>
                 </LinearLayout>
             </LinearLayout>
@@ -210,13 +210,13 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="12dp"
+                        android:textSize="12sp"
                         android:text="Pressure"/>
                     <TextView
                         android:id="@+id/pressure"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="14dp"
+                        android:textSize="14sp"
                         android:text="06:40 AM"/>
                 </LinearLayout>
                 <Space
@@ -241,13 +241,13 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="12dp"
+                        android:textSize="12sp"
                         android:text="Humidity"/>
                     <TextView
                         android:id="@+id/humidity"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="14dp"
+                        android:textSize="14sp"
                         android:text="06:40 AM"/>
                 </LinearLayout>
                 <Space
@@ -272,13 +272,13 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="12dp"
+                        android:textSize="12sp"
                         android:text="Created By"/>
                     <TextView
                         android:id="@+id/about"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="14dp"
+                        android:textSize="14sp"
                         android:text="ICKMITL"/>
                 </LinearLayout>
             </LinearLayout>
