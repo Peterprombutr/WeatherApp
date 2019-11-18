@@ -71,6 +71,11 @@ public class MainActivity extends AppCompatActivity {
             Intent i = new Intent(MainActivity.this, SwipeRight5Days.class);
             startActivity(i);
         }
+
+        @Override
+        public void onSwipeBottom() {
+            new weatherTask().execute();
+        }
     }
 
     class weatherTask extends AsyncTask<String, Void, String> {
