@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
-import android.view.MotionEvent;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,6 +17,10 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import android.content.Context;
+import android.widget.RelativeLayout;
+import com.androdocs.weatherapp.Gestures.OnSwipeTouchListener;
+
 public class MainActivity extends AppCompatActivity {
 
     String CITY = "Bangkok,th";
@@ -26,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     TextView addressTxt, updated_atTxt, statusTxt, tempTxt, temp_minTxt, temp_maxTxt, sunriseTxt,
             sunsetTxt, windTxt, pressureTxt, humidityTxt;
 
-    float x1,x2,y1,y2;
+    RelativeLayout tvSwipeMe;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,32 +49,28 @@ public class MainActivity extends AppCompatActivity {
         humidityTxt = findViewById(R.id.humidity);
 
         new weatherTask().execute();
+
+        //SetUp View & Gesture
+        tvSwipeMe = (RelativeLayout) findViewById(R.id.tvSwipeMe);
+        tvSwipeMe.setOnTouchListener(new MyOnSwipeTouchListener(this));
     }
 
-    @Override
-    public boolean onTouchEvent( MotionEvent touchEvent){
-        switch(touchEvent.getAction()){
-            case MotionEvent.ACTION_DOWN:
-                x1 = touchEvent.getX();
-                y1 = touchEvent.getY();
-                break;
-            case MotionEvent.ACTION_UP:
-                x2 = touchEvent.getX();
-                y2 = touchEvent.getY();
-                if(x1 <= x2 + 200){
-                    Intent i = new Intent(MainActivity.this, SwipeLeftSetting.class);
-                    startActivity(i);
-                }
-                else if(x1 >= x2 + 200){
-                    Intent i = new Intent(MainActivity.this, SwipeRight5Days.class);
-                    startActivity(i);
-                }
-                if(y1 <= y2){
-                    new weatherTask().execute(); //Refresh Shit
-                }
-                break;
+    private class MyOnSwipeTouchListener extends OnSwipeTouchListener {
+        public MyOnSwipeTouchListener(Context c) {
+            super(c);
         }
-        return false;
+
+        @Override
+        public void onSwipeRight() {
+            Intent i = new Intent(MainActivity.this, SwipeLeftSetting.class);
+            startActivity(i);
+        }
+
+        @Override
+        public void onSwipeLeft() {
+            Intent i = new Intent(MainActivity.this, SwipeRight5Days.class);
+            startActivity(i);
+        }
     }
 
     class weatherTask extends AsyncTask<String, Void, String> {

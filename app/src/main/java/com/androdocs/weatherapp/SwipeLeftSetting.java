@@ -18,32 +18,33 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import android.content.Context;
+import android.widget.RelativeLayout;
+import com.androdocs.weatherapp.Gestures.OnSwipeTouchListener;
+
 public class SwipeLeftSetting extends AppCompatActivity {
 
-    float x1,x2,y1,y2;
+    RelativeLayout tvSwipeMe;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_swipe_left_setting);
+
+        //SetUp View & Gesture
+        tvSwipeMe = (RelativeLayout) findViewById(R.id.tvSwipeMe);
+        tvSwipeMe.setOnTouchListener(new MyOnSwipeTouchListener(this));
     }
 
-    @Override
-    public boolean onTouchEvent( MotionEvent touchEvent){
-        switch(touchEvent.getAction()){
-            case MotionEvent.ACTION_DOWN:
-                x1 = touchEvent.getX();
-                y1 = touchEvent.getY();
-                break;
-            case MotionEvent.ACTION_UP:
-                x2 = touchEvent.getX();
-                y2 = touchEvent.getY();
-                if(x1 >= x2){
-                    Intent i = new Intent(SwipeLeftSetting.this, MainActivity.class);
-                    startActivity(i);
-                }
-                break;
+    private class MyOnSwipeTouchListener extends OnSwipeTouchListener {
+        public MyOnSwipeTouchListener(Context c) {
+            super(c);
         }
-        return false;
+
+        @Override
+        public void onSwipeLeft() {
+            Intent i = new Intent(SwipeLeftSetting.this, MainActivity.class);
+            startActivity(i);
+        }
     }
 }

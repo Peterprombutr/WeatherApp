@@ -18,9 +18,13 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import android.content.Context;
+import android.widget.RelativeLayout;
+import com.androdocs.weatherapp.Gestures.OnSwipeTouchListener;
+
 public class SwipeRight5Days extends AppCompatActivity {
 
-    float x1,x2,y1,y2;
+    RelativeLayout tvSwipeMe;
 
     // COMPLETED (1) Create a field to store the weather display TextView
     private TextView mWeatherTextView;
@@ -56,25 +60,20 @@ public class SwipeRight5Days extends AppCompatActivity {
             mWeatherTextView.append(dummyWeatherDay + "\n\n\n");
         }
 
-
+        //SetUp View & Gesture
+        tvSwipeMe = (RelativeLayout) findViewById(R.id.tvSwipeMe);
+        tvSwipeMe.setOnTouchListener(new MyOnSwipeTouchListener(this));
     }
 
-    @Override
-    public boolean onTouchEvent( MotionEvent touchEvent){
-        switch(touchEvent.getAction()){
-            case MotionEvent.ACTION_DOWN:
-                x1 = touchEvent.getX();
-                y1 = touchEvent.getY();
-                break;
-            case MotionEvent.ACTION_UP:
-                x2 = touchEvent.getX();
-                y2 = touchEvent.getY();
-                if(x1 <= x2){
-                    Intent i = new Intent(SwipeRight5Days.this, MainActivity.class);
-                    startActivity(i);
-                }
-                break;
+    private class MyOnSwipeTouchListener extends OnSwipeTouchListener {
+        public MyOnSwipeTouchListener(Context c) {
+            super(c);
         }
-        return false;
+
+        @Override
+        public void onSwipeRight() {
+            Intent i = new Intent(SwipeRight5Days.this, MainActivity.class);
+            startActivity(i);
+        }
     }
 }
