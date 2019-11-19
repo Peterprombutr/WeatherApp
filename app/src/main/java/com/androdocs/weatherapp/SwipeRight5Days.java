@@ -1,22 +1,10 @@
 package com.androdocs.weatherapp;
 
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.view.View;
-import android.view.MotionEvent;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.androdocs.httprequest.HttpRequest;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
 
 import android.content.Context;
 import android.widget.RelativeLayout;
@@ -61,7 +49,7 @@ public class SwipeRight5Days extends AppCompatActivity {
         }
 
         //SetUp View & Gesture
-        tvSwipeMe = (RelativeLayout) findViewById(R.id.tvSwipeMe);
+        tvSwipeMe = findViewById(R.id.tvSwipeMe);
         tvSwipeMe.setOnTouchListener(new MyOnSwipeTouchListener(this));
     }
 

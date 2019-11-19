@@ -1,22 +1,11 @@
 package com.androdocs.weatherapp;
 
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.view.View;
-import android.view.MotionEvent;
-import android.widget.TextView;
+import android.widget.CompoundButton;
+import android.widget.ToggleButton;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.androdocs.httprequest.HttpRequest;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
 
 import android.content.Context;
 import android.widget.RelativeLayout;
@@ -25,6 +14,7 @@ import com.androdocs.weatherapp.Gestures.OnSwipeTouchListener;
 public class SwipeLeftSetting extends AppCompatActivity {
 
     RelativeLayout tvSwipeMe;
+    ToggleButton ImpSwitch = null, ThaiSwitch = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,8 +22,33 @@ public class SwipeLeftSetting extends AppCompatActivity {
         setContentView(R.layout.activity_swipe_left_setting);
 
         //SetUp View & Gesture
-        tvSwipeMe = (RelativeLayout) findViewById(R.id.tvSwipeMe);
+        tvSwipeMe = findViewById(R.id.tvSwipeMe);
         tvSwipeMe.setOnTouchListener(new MyOnSwipeTouchListener(this));
+        //Setting Switch Stuff
+        ImpSwitch =  findViewById(R.id.ImperialSwitch);
+        ImpSwitch.setOnCheckedChangeListener( new CompoundButton.OnCheckedChangeListener(){
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked) {
+
+                }
+                else {
+
+                }
+            }
+        });
+        ThaiSwitch =  findViewById(R.id.ThaiLanguageSwitch);
+        ThaiSwitch.setOnCheckedChangeListener( new CompoundButton.OnCheckedChangeListener(){
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked) {
+
+                }
+                else {
+
+                }
+            }
+        });
     }
 
     private class MyOnSwipeTouchListener extends OnSwipeTouchListener {

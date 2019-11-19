@@ -31,7 +31,11 @@
     <!-- Setting Screen -->
     <string name="title_setting">Setting</string>
 
-    <string name="setting_ImperialUnit">Imperial Unit</string>
-    <string name="setting_Thailanguage">Thai Language Mode</string>
+    <string name="setting_ImperialUnit">Unit Display</string>
+    <string name="toggle_Metric">Metric</string>
+    <string name="toggle_Imperial">Imperial</string>
+    <string name="setting_ThaiLanguage">Language</string>
+    <string name="toggle_English">English</string>
+    <string name="toggle_Thai">Thai</string>
 
 </resources>

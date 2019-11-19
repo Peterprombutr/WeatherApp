@@ -37,25 +37,54 @@
             android:layout_below="@id/addressContainer">
             <Space
                 android:layout_width="wrap_content"
-                android:layout_height="10dp"/>
-            <Switch
-                android:id="@+id/ImperialSwitch"
+                android:layout_height="13dp"/>
+            <LinearLayout
+                android:id="@+id/overviewImpSwitch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/setting_ImperialUnit"
-                android:textColor="@android:color/white"
-                android:textSize="24sp" />
+                android:orientation="horizontal"
+                android:gravity="start">
+                <TextView
+                    android:id="@+id/settingUnitText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/setting_ImperialUnit"
+                    android:textSize="28sp" />
+                <ToggleButton
+                    android:id="@+id/ImperialSwitch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textOn="@string/toggle_Imperial"
+                    android:textOff="@string/toggle_Metric"
+                    android:textColor="@android:color/white"
+                    android:textSize="24sp" />
+            </LinearLayout>
             <Space
                 android:layout_width="wrap_content"
-                android:layout_height="10dp"/>
-            <Switch
-                android:id="@+id/ThaiLanguageSwitch"
+                android:layout_height="13dp"/>
+            <LinearLayout
+                android:id="@+id/overviewLanguageSwitch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/setting_Thailanguage"
-                android:textColor="@android:color/white"
-                android:textSize="24sp" />
+                android:orientation="horizontal"
+                android:gravity="start">
+                <TextView
+                    android:id="@+id/settingLanguageText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/setting_ThaiLanguage"
+                    android:textSize="28sp" />
+                <ToggleButton
+                    android:id="@+id/ThaiLanguageSwitch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textOn="@string/toggle_Thai"
+                    android:textOff="@string/toggle_English"
+                    android:textColor="@android:color/white"
+                    android:textSize="24sp" />
+            </LinearLayout>
         </LinearLayout>
 
     </RelativeLayout>
