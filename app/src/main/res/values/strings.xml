@@ -6,7 +6,12 @@
     <string name="progress">Loading..</string>
     <string name="something_gone_wrong">Something went wrong</string>
 
-    <!-- Daily Weather/Home Screen -->
+    <!-- Splash Screen -->
+    <string name="desc_about_app">Weather forecast | ☀️ OpenWheatherMap</string>
+    <string name="desc_app_logo">App Logo</string>
+    <string name="msg_splash_bottom_tag">ICKMITL AOOP FINAL Project </string>
+
+    <!-- Current Weather/Home Screen -->
     <string name="placeholder_location">BANGKOK, TH</string>
     <string name="placeholder_lastUpdateTime">19 NOVEMBER 2019, 20:08 PM</string>
 
@@ -47,5 +52,8 @@
     <string name="setting_ThaiLanguage">Language</string>
     <string name="toggle_English">English</string>
     <string name="toggle_Thai">Thai</string>
+
+    <!-- Setting Screen -->
+    <string name="title_next5days">Next 5 Days</string>
 
 </resources>

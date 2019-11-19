@@ -3,4 +3,14 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+
+    <color name="color_thunderstroms">#142d4c</color>
+    <color name="color_clear_and_sunny">#ffc045</color>
+    <color name="color_partly_cloudy">#df7599</color>
+    <color name="color_gusty_winds">#7189bf</color>
+    <color name="color_hail_stroms">#b55400</color>
+    <color name="color_snow">#90b8f8</color>
+    <color name="color_mix_snow_and_rain">#72c6d9</color>
+    <color name="color_cloudy_overnight">#385170</color>
+    <color name="color_heavy_rain">#484c7f</color>
 </resources>
