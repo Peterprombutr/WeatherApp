@@ -142,7 +142,7 @@ public class SwipeLeftSetting extends AppCompatActivity {
                     LocName = addresses.get(0).getLocality(); //+","+addresses.get(0).getCountryCode();
                     System.out.println(LocName);
 
-                    if(LocName!="") All_API_Keyword.CITY = LocName;
+                    if(LocName!=null) All_API_Keyword.CITY = LocName;
                 }
         });
         ButtonManLoc = findViewById(R.id.ButtonManualLocation);
