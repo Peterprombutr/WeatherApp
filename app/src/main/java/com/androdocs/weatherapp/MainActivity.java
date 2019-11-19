@@ -62,9 +62,9 @@ public class MainActivity extends AppCompatActivity {
         ta.recycle();
         about = "<style media=\"screen\" type=\"text/css\">" +
                 "body {\n" +
-                "    color:" + textColor + ";\n" +
+                "    color:" + "black" + ";\n" +
                 "}\n" +
-                "a:link {color:" + accentColor + "}\n" +
+                "a:link {color:" + "black" + "}\n" +
                 "</style>" +
                 about;
         webView.setBackgroundColor(Color.TRANSPARENT);
