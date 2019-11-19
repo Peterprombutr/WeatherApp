@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.Context;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.RelativeLayout;
 import android.widget.ToggleButton;
@@ -14,12 +16,36 @@ import com.androdocs.weatherapp.Gestures.OnSwipeTouchListener;
 public class SwipeLeftSetting extends AppCompatActivity {
     RelativeLayout tvSwipeMe;
     ToggleButton ImpSwitch, ThaiSwitch;
+    Button ButtonCurLoc, ButtonManLoc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_swipe_left_setting);
+        initMembers();
+    }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        initMembers();
+    }
+
+    //Swipe Listener
+    private class MyOnSwipeTouchListener extends OnSwipeTouchListener {
+        public MyOnSwipeTouchListener(Context c) {
+            super(c);
+        }
+
+        @Override
+        public void onSwipeLeft() {
+            Intent i = new Intent(SwipeLeftSetting.this, MainActivity.class);
+            startActivity(i);
+        }
+    }
+
+    //Init the rest
+    private void initMembers() {
         //SetUp View & Gesture
         tvSwipeMe = findViewById(R.id.tvSwipeMe);
         tvSwipeMe.setOnTouchListener(new MyOnSwipeTouchListener(this));
@@ -65,18 +91,19 @@ public class SwipeLeftSetting extends AppCompatActivity {
                 }
             }
         });
-    }
-
-    /*** Swipe Listener ***/
-    private class MyOnSwipeTouchListener extends OnSwipeTouchListener {
-        public MyOnSwipeTouchListener(Context c) {
-            super(c);
-        }
-
-        @Override
-        public void onSwipeLeft() {
-            Intent i = new Intent(SwipeLeftSetting.this, MainActivity.class);
-            startActivity(i);
-        }
+        ButtonCurLoc = findViewById(R.id.ButtonCurrentLocation);
+        ButtonCurLoc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //DoIt(v);
+            }
+        });
+        ButtonManLoc = findViewById(R.id.ButtonManualLocation);
+        ButtonManLoc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //DoIt(v);
+            }
+        });
     }
 }

@@ -50,6 +50,9 @@
                     android:layout_height="wrap_content"
                     android:text="@string/setting_ImperialUnit"
                     android:textSize="28sp" />
+                <Space
+                    android:layout_width="75dp"
+                    android:layout_height="wrap_content"/>
                 <ToggleButton
                     android:id="@+id/ImperialSwitch"
                     android:layout_width="wrap_content"
@@ -75,6 +78,9 @@
                     android:layout_height="wrap_content"
                     android:text="@string/setting_ThaiLanguage"
                     android:textSize="28sp" />
+                <Space
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"/>
                 <ToggleButton
                     android:id="@+id/ThaiLanguageSwitch"
                     android:layout_width="wrap_content"
@@ -84,6 +90,41 @@
                     android:textOff="@string/toggle_English"
                     android:textColor="@android:color/white"
                     android:textSize="24sp" />
+            </LinearLayout>
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="13dp"/>
+            <LinearLayout
+                android:id="@+id/overviewLocationSetting"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="start">
+                <TextView
+                    android:id="@+id/settingLocation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/setting_Location"
+                    android:textSize="28sp" />
+                <Space
+                    android:layout_width="10dp"
+                    android:layout_height="wrap_content"/>
+                <Button
+                    android:id="@+id/ButtonCurrentLocation"
+                    android:layout_width="118dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    android:text="@string/Button_LocationCurrent" />
+                <Button
+                    android:id="@+id/ButtonManualLocation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    android:text="@string/Button_LocationManual" />
             </LinearLayout>
         </LinearLayout>
 

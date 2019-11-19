@@ -39,44 +39,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        initMembers();
+    }
 
-        addressTxt = findViewById(R.id.address);
-        updated_atTxt = findViewById(R.id.updated_at);
-        statusTxt = findViewById(R.id.status);
-        tempTxt = findViewById(R.id.temp);
-        temp_minTxt = findViewById(R.id.temp_min);
-        temp_maxTxt = findViewById(R.id.temp_max);
-        sunriseTxt = findViewById(R.id.sunrise);
-        sunsetTxt = findViewById(R.id.sunset);
-        windTxt = findViewById(R.id.wind);
-        pressureTxt = findViewById(R.id.pressure);
-        humidityTxt = findViewById(R.id.humidity);
-
-        new weatherTask().execute();
-
-        //SetUp View & Gesture
-        tvSwipeMe = findViewById(R.id.tvSwipeMe);
-        tvSwipeMe.setOnTouchListener(new MyOnSwipeTouchListener(this));
-
-
-        //Metric-Imperial
-        Resources res = getResources();
-        String[] tempUnitArray= res.getStringArray(R.array.temperature_degree);
-        if(All_API_Keyword.UNIT=="metric"){ DegreeUnit = tempUnitArray[0]; }
-        else{ DegreeUnit = tempUnitArray[1]; }
-
-        String[] windUnitArray= res.getStringArray(R.array.wind_degree);
-        if(All_API_Keyword.UNIT=="metric"){ WindUnit = windUnitArray[0]; }
-        else{ WindUnit = windUnitArray[1]; }
-
-        //AboutDialog
-        imgButton = findViewById(R.id.action_about);
-        imgButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showAboutDialog();
-            }
-        });
+    @Override
+    protected void onStart() {
+        super.onStart();
+        initMembers();
     }
 
     private void showAboutDialog() {
@@ -200,5 +169,45 @@ public class MainActivity extends AppCompatActivity {
             }
 
         }
+    }
+
+    //Init the rest
+    private void initMembers() {
+        addressTxt = findViewById(R.id.address);
+        updated_atTxt = findViewById(R.id.updated_at);
+        statusTxt = findViewById(R.id.status);
+        tempTxt = findViewById(R.id.temp);
+        temp_minTxt = findViewById(R.id.temp_min);
+        temp_maxTxt = findViewById(R.id.temp_max);
+        sunriseTxt = findViewById(R.id.sunrise);
+        sunsetTxt = findViewById(R.id.sunset);
+        windTxt = findViewById(R.id.wind);
+        pressureTxt = findViewById(R.id.pressure);
+        humidityTxt = findViewById(R.id.humidity);
+
+        new weatherTask().execute();
+
+        //SetUp View & Gesture
+        tvSwipeMe = findViewById(R.id.tvSwipeMe);
+        tvSwipeMe.setOnTouchListener(new MyOnSwipeTouchListener(this));
+
+        //Metric-Imperial
+        Resources res = getResources();
+        String[] tempUnitArray= res.getStringArray(R.array.temperature_degree);
+        if(All_API_Keyword.UNIT=="metric"){ DegreeUnit = tempUnitArray[0]; }
+        else{ DegreeUnit = tempUnitArray[1]; }
+
+        String[] windUnitArray= res.getStringArray(R.array.wind_degree);
+        if(All_API_Keyword.UNIT=="metric"){ WindUnit = windUnitArray[0]; }
+        else{ WindUnit = windUnitArray[1]; }
+
+        //AboutDialog
+        imgButton = findViewById(R.id.action_about);
+        imgButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showAboutDialog();
+            }
+        });
     }
 }

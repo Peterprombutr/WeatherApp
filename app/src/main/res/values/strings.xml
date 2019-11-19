@@ -52,6 +52,9 @@
     <string name="setting_ThaiLanguage">Language</string>
     <string name="toggle_English">English</string>
     <string name="toggle_Thai">Thai</string>
+    <string name="setting_Location">Location</string>
+    <string name="Button_LocationCurrent">Current</string>
+    <string name="Button_LocationManual">Manual</string>
 
     <!-- Setting Screen -->
     <string name="title_next5days">Next 5 Days</string>
