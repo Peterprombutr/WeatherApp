@@ -60,4 +60,25 @@
     <!-- Setting Screen -->
     <string name="title_next5days">Next 5 Days</string>
 
+
+
+    <!-- Legacy -->
+    <string name="msg_failed">Something went wrong… Please try later!</string>
+    <string name="msg_gps">Please enable GPS for current location access</string>
+    <string name="msg_internet">Please connect to Internet</string>
+    <string name="msg_location_services">Allow the application access to location permission</string>
+
+    <string name="action_search">Search Weather by City Name</string>
+    <string name="action_about">About</string>
+
+    <string name="desc_weather">Weather condition</string>
+
+    <string name="temp_lable">Temperature:</string>
+    <string name="temp_unit">\u00B0C</string>
+    <string name="wind_lable">Wind:</string>
+    <string name="wind_unit">m/s</string>
+    <string name="pressure_lable">Pressure:</string>
+    <string name="pressure_unit">hPa</string>
+    <string name="humidity_lable">humidity:</string>
+    <string name="humidity_unit">%</string>
 </resources>
