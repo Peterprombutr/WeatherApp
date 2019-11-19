@@ -1,9 +1,15 @@
 package com.androdocs.weatherapp;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.TypedArray;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
+import android.webkit.WebView;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
             sunsetTxt, windTxt, pressureTxt, humidityTxt;
 
     RelativeLayout tvSwipeMe;
+    ImageButton imgButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +60,45 @@ public class MainActivity extends AppCompatActivity {
         //SetUp View & Gesture
         tvSwipeMe = (RelativeLayout) findViewById(R.id.tvSwipeMe);
         tvSwipeMe.setOnTouchListener(new MyOnSwipeTouchListener(this));
+
+        //AboutDialog
+        imgButton =(ImageButton)findViewById(R.id.action_about);
+        imgButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showAboutDialog();
+            }
+        });
+    }
+
+    private void showAboutDialog() {
+        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+        alert.setTitle(R.string.app_name);
+
+        final WebView webView = new WebView(this);
+        String about = "<p>Weather App</p>" +
+                "<p>Developed by 61090020 610900023</p>" +
+                "<p>Data provided by <a href='https://openweathermap.org/'>OpenWeatherMap</a>, under the <a href='http://creativecommons.org/licenses/by-sa/2.0/'>Creative Commons License</a>";
+        TypedArray ta = obtainStyledAttributes(new int[]{android.R.attr.textColorPrimary, R.attr.colorAccent});
+        String textColor = String.format("#%06X", (0xFFFFFF & ta.getColor(0, Color.BLACK)));
+        String accentColor = String.format("#%06X", (0xFFFFFF & ta.getColor(1, Color.BLUE)));
+        ta.recycle();
+        about = "<style media=\"screen\" type=\"text/css\">" +
+                "body {\n" +
+                "    color:" + textColor + ";\n" +
+                "}\n" +
+                "a:link {color:" + accentColor + "}\n" +
+                "</style>" +
+                about;
+        webView.setBackgroundColor(Color.TRANSPARENT);
+        webView.loadData(about, "text/html", "UTF-8");
+        alert.setView(webView);
+        alert.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+
+            }
+        });
+        alert.show();
     }
 
     private class MyOnSwipeTouchListener extends OnSwipeTouchListener {
