@@ -84,7 +84,6 @@ public class SwipeRight5Days extends AppCompatActivity {
     Toolbar toolbar;
     ImageView imageViewWeatherIcon;
 
-    TextView tvTodayTemperature, tvTodayDescription, tvTodayWind, tvTodayPressure, tvTodayHumidity;
     ConstraintLayout layout;
 
     private static long back_pressed;
@@ -409,103 +408,6 @@ public class SwipeRight5Days extends AppCompatActivity {
                     recyclerViewLater.setAdapter(cardAdapter3);
 
                     toolbar.setTitle(response.body().getCity().getName() + ", " + response.body().getCity().getCountry());
-                    switch (weatherList.get(0).getWeather().get(0).getIcon()) {
-                        case "01d":
-                            imageViewWeatherIcon.setImageResource(R.drawable.ic_weather_clear_sky);
-                            toolbar.setBackgroundResource(R.color.color_clear_and_sunny);
-                            layout.setBackgroundColor(getResources().getColor(R.color.color_clear_and_sunny));
-                            break;
-                        case "01n":
-                            imageViewWeatherIcon.setImageResource(R.drawable.ic_weather_clear_sky);
-                            toolbar.setBackgroundResource(R.color.color_clear_and_sunny);
-                            layout.setBackgroundColor(getResources().getColor(R.color.color_clear_and_sunny));
-                            break;
-                        case "02d":
-                            imageViewWeatherIcon.setImageResource(R.drawable.ic_weather_few_cloud);
-                            toolbar.setBackgroundResource(R.color.color_partly_cloudy);
-                            layout.setBackgroundColor(getResources().getColor(R.color.color_partly_cloudy));
-                            break;
-                        case "02n":
-                            imageViewWeatherIcon.setImageResource(R.drawable.ic_weather_few_cloud);
-                            toolbar.setBackgroundResource(R.color.color_partly_cloudy);
-                            layout.setBackgroundColor(getResources().getColor(R.color.color_partly_cloudy));
-                            break;
-                        case "03d":
-                            imageViewWeatherIcon.setImageResource(R.drawable.ic_weather_scattered_clouds);
-                            toolbar.setBackgroundResource(R.color.color_gusty_winds);
-                            layout.setBackgroundColor(getResources().getColor(R.color.color_gusty_winds));
-                            break;
-                        case "03n":
-                            imageViewWeatherIcon.setImageResource(R.drawable.ic_weather_scattered_clouds);
-                            toolbar.setBackgroundResource(R.color.color_gusty_winds);
-                            layout.setBackgroundColor(getResources().getColor(R.color.color_gusty_winds));
-                            break;
-                        case "04d":
-                            imageViewWeatherIcon.setImageResource(R.drawable.ic_weather_broken_clouds);
-                            toolbar.setBackgroundResource(R.color.color_cloudy_overnight);
-                            layout.setBackgroundColor(getResources().getColor(R.color.color_cloudy_overnight));
-                            break;
-                        case "04n":
-                            imageViewWeatherIcon.setImageResource(R.drawable.ic_weather_broken_clouds);
-                            toolbar.setBackgroundResource(R.color.color_cloudy_overnight);
-                            layout.setBackgroundColor(getResources().getColor(R.color.color_cloudy_overnight));
-                            break;
-                        case "09d":
-                            imageViewWeatherIcon.setImageResource(R.drawable.ic_weather_shower_rain);
-                            toolbar.setBackgroundResource(R.color.color_hail_stroms);
-                            layout.setBackgroundColor(getResources().getColor(R.color.color_hail_stroms));
-                            break;
-                        case "09n":
-                            imageViewWeatherIcon.setImageResource(R.drawable.ic_weather_shower_rain);
-                            toolbar.setBackgroundResource(R.color.color_hail_stroms);
-                            layout.setBackgroundColor(getResources().getColor(R.color.color_hail_stroms));
-                            break;
-                        case "10d":
-                            imageViewWeatherIcon.setImageResource(R.drawable.ic_weather_rain);
-                            toolbar.setBackgroundResource(R.color.color_heavy_rain);
-                            layout.setBackgroundColor(getResources().getColor(R.color.color_heavy_rain));
-                            break;
-                        case "10n":
-                            imageViewWeatherIcon.setImageResource(R.drawable.ic_weather_rain);
-                            toolbar.setBackgroundResource(R.color.color_heavy_rain);
-                            layout.setBackgroundColor(getResources().getColor(R.color.color_heavy_rain));
-                            break;
-                        case "11d":
-                            imageViewWeatherIcon.setImageResource(R.drawable.ic_weather_thunderstorm);
-                            toolbar.setBackgroundResource(R.color.color_thunderstroms);
-                            layout.setBackgroundColor(getResources().getColor(R.color.color_thunderstroms));
-                            break;
-                        case "11n":
-                            imageViewWeatherIcon.setImageResource(R.drawable.ic_weather_thunderstorm);
-                            toolbar.setBackgroundResource(R.color.color_thunderstroms);
-                            layout.setBackgroundColor(getResources().getColor(R.color.color_thunderstroms));
-                            break;
-                        case "13d":
-                            imageViewWeatherIcon.setImageResource(R.drawable.ic_weather_snow);
-                            toolbar.setBackgroundResource(R.color.color_snow);
-                            layout.setBackgroundColor(getResources().getColor(R.color.color_snow));
-                            break;
-                        case "13n":
-                            imageViewWeatherIcon.setImageResource(R.drawable.ic_weather_snow);
-                            toolbar.setBackgroundResource(R.color.color_snow);
-                            layout.setBackgroundColor(getResources().getColor(R.color.color_snow));
-                            break;
-                        case "15d":
-                            imageViewWeatherIcon.setImageResource(R.drawable.ic_weather_mist);
-                            toolbar.setBackgroundResource(R.color.color_mix_snow_and_rain);
-                            layout.setBackgroundColor(getResources().getColor(R.color.color_mix_snow_and_rain));
-                            break;
-                        case "15n":
-                            imageViewWeatherIcon.setImageResource(R.drawable.ic_weather_mist);
-                            toolbar.setBackgroundResource(R.color.color_mix_snow_and_rain);
-                            layout.setBackgroundColor(getResources().getColor(R.color.color_mix_snow_and_rain));
-                            break;
-                    }
-                    tvTodayTemperature.setText(weatherList.get(0).getMain().getTemp() + " " + getString(R.string.temp_unit));
-                    tvTodayDescription.setText(weatherList.get(0).getWeather().get(0).getDescription());
-                    tvTodayWind.setText(getString(R.string.wind_lable) + " " + weatherList.get(0).getWind().getSpeed() + " " + getString(R.string.wind_unit));
-                    tvTodayPressure.setText(getString(R.string.pressure_lable) + " " + weatherList.get(0).getMain().getPressure() + " " + getString(R.string.pressure_unit));
-                    tvTodayHumidity.setText(getString(R.string.humidity_lable) + " " + weatherList.get(0).getMain().getHumidity() + " " + getString(R.string.humidity_unit));
                 }
             }
 
@@ -526,12 +428,6 @@ public class SwipeRight5Days extends AppCompatActivity {
         progressDialog.setMessage(getString(R.string.progress));
         toolbar = findViewById(R.id.app_toolbar);
         setSupportActionBar(toolbar);
-        imageViewWeatherIcon = findViewById(R.id.imageViewWeather);
-        tvTodayTemperature = findViewById(R.id.todayTemperature);
-        tvTodayDescription = findViewById(R.id.todayDescription);
-        tvTodayWind = findViewById(R.id.todayWind);
-        tvTodayPressure = findViewById(R.id.todayPressure);
-        tvTodayHumidity = findViewById(R.id.todayHumidity);
 
         layout = findViewById(R.id.layoutWeather);
     }
