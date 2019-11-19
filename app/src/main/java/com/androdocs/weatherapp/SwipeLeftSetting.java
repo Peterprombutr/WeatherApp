@@ -1,19 +1,31 @@
 package com.androdocs.weatherapp;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.Context;
+import android.location.Address;
+import android.location.Geocoder;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.ToggleButton;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.androdocs.weatherapp.Gestures.OnSwipeTouchListener;
 
+import java.io.IOException;
+import java.util.List;
+import java.util.Locale;
+
 public class SwipeLeftSetting extends AppCompatActivity {
+    double latitude, longitude;
+    String LocName;
+
     RelativeLayout tvSwipeMe;
     ToggleButton ImpSwitch, ThaiSwitch;
     Button ButtonCurLoc, ButtonManLoc;
@@ -42,6 +54,30 @@ public class SwipeLeftSetting extends AppCompatActivity {
             Intent i = new Intent(SwipeLeftSetting.this, MainActivity.class);
             startActivity(i);
         }
+    }
+
+    private void searchByCityName() {
+        android.app.AlertDialog.Builder alert = new android.app.AlertDialog.Builder(this);
+        alert.setTitle(this.getString(R.string.search_title));
+        final EditText input = new EditText(this);
+        input.setInputType(InputType.TYPE_CLASS_TEXT);
+        input.setMaxLines(1);
+        input.setSingleLine(true);
+        alert.setView(input);
+        alert.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                String result = input.getText().toString();
+                if (!result.isEmpty()) {
+                    All_API_Keyword.CITY = result;
+                }
+            }
+        });
+        alert.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                // Cancelled
+            }
+        });
+        alert.show();
     }
 
     //Init the rest
@@ -95,14 +131,25 @@ public class SwipeLeftSetting extends AppCompatActivity {
         ButtonCurLoc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //DoIt(v);
-            }
+                Geocoder gcd = new Geocoder(getBaseContext(), Locale.getDefault());
+                List<Address> addresses = null;
+                try {
+                    addresses = gcd.getFromLocation(latitude, longitude, 1);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                if (addresses.size() > 0)
+                    LocName = addresses.get(0).getLocality(); //+","+addresses.get(0).getCountryCode();
+                    System.out.println(LocName);
+
+                    if(LocName!="") All_API_Keyword.CITY = LocName;
+                }
         });
         ButtonManLoc = findViewById(R.id.ButtonManualLocation);
         ButtonManLoc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //DoIt(v);
+                searchByCityName();
             }
         });
     }

@@ -55,6 +55,7 @@
     <string name="setting_Location">Location</string>
     <string name="Button_LocationCurrent">Current</string>
     <string name="Button_LocationManual">Manual</string>
+    <string name="search_title"> 🔍 Enter City Name </string>
 
     <!-- Setting Screen -->
     <string name="title_next5days">Next 5 Days</string>
