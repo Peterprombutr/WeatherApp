@@ -57,7 +57,7 @@ public class SwipeLeftSetting extends AppCompatActivity {
     }
 
     private void searchByCityName() {
-        android.app.AlertDialog.Builder alert = new android.app.AlertDialog.Builder(this);
+        android.app.AlertDialog.Builder alert = new android.app.AlertDialog.Builder(this, R.style.AlertDialog);
         alert.setTitle(this.getString(R.string.search_title));
         final EditText input = new EditText(this);
         input.setInputType(InputType.TYPE_CLASS_TEXT);

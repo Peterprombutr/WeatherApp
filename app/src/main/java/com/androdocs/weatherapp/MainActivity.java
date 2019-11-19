@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showAboutDialog() {
-        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+        AlertDialog.Builder alert = new AlertDialog.Builder(this, R.style.AlertDialog);
         alert.setTitle(R.string.app_name);
 
         final WebView webView = new WebView(this);
@@ -120,8 +120,6 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String result) {
-
-
             try {
                 JSONObject jsonObj = new JSONObject(result);
                 JSONObject main = jsonObj.getJSONObject("main");
