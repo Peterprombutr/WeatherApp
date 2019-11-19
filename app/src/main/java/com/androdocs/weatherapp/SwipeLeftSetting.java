@@ -68,6 +68,7 @@ public class SwipeLeftSetting extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int whichButton) {
                 String result = input.getText().toString();
                 if (!result.isEmpty()) {
+                    System.out.println(result);
                     All_API_Keyword.CITY = result;
                 }
             }
@@ -138,12 +139,18 @@ public class SwipeLeftSetting extends AppCompatActivity {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                if (addresses.size() > 0)
+                if (addresses.size() > 0) {
                     LocName = addresses.get(0).getLocality(); //+","+addresses.get(0).getCountryCode();
                     System.out.println(LocName);
 
-                    if(LocName!=null) All_API_Keyword.CITY = LocName;
+                    if (LocName != null) All_API_Keyword.CITY = LocName;
                 }
+                else {
+                    //Placeholder Text until the System is fixed
+                    System.out.println("Placeholder Location, please remove this on release");
+                    All_API_Keyword.CITY = "Lat Krabang,th";
+                }
+            }
         });
         ButtonManLoc = findViewById(R.id.ButtonManualLocation);
         ButtonManLoc.setOnClickListener(new View.OnClickListener() {
