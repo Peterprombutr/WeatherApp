@@ -28,10 +28,6 @@ import android.widget.RelativeLayout;
 import com.androdocs.weatherapp.Gestures.OnSwipeTouchListener;
 
 public class MainActivity extends AppCompatActivity {
-
-    String CITY = "Bangkok,th";
-    String API = "4b4285554f2a8e5aeca3e8b8b0eec3ed";
-
     TextView addressTxt, updated_atTxt, statusTxt, tempTxt, temp_minTxt, temp_maxTxt, sunriseTxt,
             sunsetTxt, windTxt, pressureTxt, humidityTxt;
 
@@ -136,7 +132,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         protected String doInBackground(String... args) {
-            String response = HttpRequest.excuteGet("https://api.openweathermap.org/data/2.5/weather?q=" + CITY + "&units=metric&appid=" + API);
+            String response = HttpRequest.excuteGet("https://api.openweathermap.org/data/2.5/weather?q=" + All_API_Keyword.CITY + "&units=" + All_API_Keyword.UNIT + "&appid=" + All_API_Keyword.API);
             return response;
         }
 
