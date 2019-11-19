@@ -3,6 +3,7 @@ package com.androdocs.weatherapp;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.os.AsyncTask;
@@ -34,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
     RelativeLayout tvSwipeMe;
     ImageButton imgButton;
 
+    String DegreeUnit, WindUnit;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +59,17 @@ public class MainActivity extends AppCompatActivity {
         //SetUp View & Gesture
         tvSwipeMe = findViewById(R.id.tvSwipeMe);
         tvSwipeMe.setOnTouchListener(new MyOnSwipeTouchListener(this));
+
+
+        //Metric-Imperial
+        Resources res = getResources();
+        String[] tempUnitArray= res.getStringArray(R.array.temperature_degree);
+        if(All_API_Keyword.UNIT=="metric"){ DegreeUnit = tempUnitArray[0]; }
+        else{ DegreeUnit = tempUnitArray[1]; }
+
+        String[] windUnitArray= res.getStringArray(R.array.wind_degree);
+        if(All_API_Keyword.UNIT=="metric"){ WindUnit = windUnitArray[0]; }
+        else{ WindUnit = windUnitArray[1]; }
 
         //AboutDialog
         imgButton = findViewById(R.id.action_about);
@@ -149,15 +163,15 @@ public class MainActivity extends AppCompatActivity {
 
                 Long updatedAt = jsonObj.getLong("dt");
                 String updatedAtText = "Updated at: " + new SimpleDateFormat("dd/MM/yyyy hh:mm a", Locale.ENGLISH).format(new Date(updatedAt * 1000));
-                String temp = main.getString("temp") + "°C";
-                String tempMin = "Min Temp: " + main.getString("temp_min") + "°C";
-                String tempMax = "Max Temp: " + main.getString("temp_max") + "°C";
+                String temp = main.getString("temp") + DegreeUnit;
+                String tempMin = "Min Temp: " + main.getString("temp_min") + DegreeUnit;
+                String tempMax = "Max Temp: " + main.getString("temp_max") + DegreeUnit;
                 String pressure = main.getString("pressure");
                 String humidity = main.getString("humidity");
 
                 Long sunrise = sys.getLong("sunrise");
                 Long sunset = sys.getLong("sunset");
-                String windSpeed = wind.getString("speed");
+                String windSpeed = wind.getString("speed") + " " + WindUnit;
                 String weatherDescription = weather.getString("description");
 
                 String address = jsonObj.getString("name") + ", " + sys.getString("country");

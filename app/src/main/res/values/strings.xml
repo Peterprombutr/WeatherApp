@@ -28,6 +28,16 @@
     <string name="credit_createBy">Created By</string>
     <string name="credit_ICKMITL">ICKMITL</string>
 
+    <string-array name="temperature_degree">
+        <item>°C</item>
+        <item>°F</item>
+    </string-array>
+    <string-array name="wind_degree">
+        <item>m/s</item>
+        <item>m/h</item>
+    </string-array>
+
+
     <!-- Setting Screen -->
     <string name="title_setting">Setting</string>
 
