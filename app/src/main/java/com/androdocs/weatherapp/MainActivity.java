@@ -1,6 +1,7 @@
 package com.androdocs.weatherapp;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -11,11 +12,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.ImageButton;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.androdocs.httprequest.HttpRequest;
+import com.androdocs.weatherapp.Gestures.OnSwipeTouchListener;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -23,10 +25,6 @@ import org.json.JSONObject;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
-
-import android.content.Context;
-import android.widget.RelativeLayout;
-import com.androdocs.weatherapp.Gestures.OnSwipeTouchListener;
 
 public class MainActivity extends AppCompatActivity {
     TextView addressTxt, updated_atTxt, statusTxt, tempTxt, temp_minTxt, temp_maxTxt, sunriseTxt,
@@ -111,6 +109,7 @@ public class MainActivity extends AppCompatActivity {
         alert.show();
     }
 
+    /*** Swipe Listener ***/
     private class MyOnSwipeTouchListener extends OnSwipeTouchListener {
         public MyOnSwipeTouchListener(Context c) {
             super(c);

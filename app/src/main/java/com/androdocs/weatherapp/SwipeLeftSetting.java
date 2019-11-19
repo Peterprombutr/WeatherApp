@@ -2,20 +2,18 @@ package com.androdocs.weatherapp;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.Context;
 import android.os.Bundle;
 import android.widget.CompoundButton;
+import android.widget.RelativeLayout;
 import android.widget.ToggleButton;
-
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
-import android.widget.RelativeLayout;
 import com.androdocs.weatherapp.Gestures.OnSwipeTouchListener;
 
 public class SwipeLeftSetting extends AppCompatActivity {
-
     RelativeLayout tvSwipeMe;
-    ToggleButton ImpSwitch = null, ThaiSwitch = null;
+    ToggleButton ImpSwitch, ThaiSwitch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +23,7 @@ public class SwipeLeftSetting extends AppCompatActivity {
         //SetUp View & Gesture
         tvSwipeMe = findViewById(R.id.tvSwipeMe);
         tvSwipeMe.setOnTouchListener(new MyOnSwipeTouchListener(this));
+
         //Setting Switch Stuff
         SharedPreferences sharedPrefs = getSharedPreferences("com.androdocs.weatherapp", MODE_PRIVATE);
 
@@ -68,6 +67,7 @@ public class SwipeLeftSetting extends AppCompatActivity {
         });
     }
 
+    /*** Swipe Listener ***/
     private class MyOnSwipeTouchListener extends OnSwipeTouchListener {
         public MyOnSwipeTouchListener(Context c) {
             super(c);

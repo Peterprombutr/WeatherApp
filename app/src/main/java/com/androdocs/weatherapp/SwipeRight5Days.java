@@ -1,13 +1,12 @@
 package com.androdocs.weatherapp;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
-
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
-import android.widget.RelativeLayout;
 import com.androdocs.weatherapp.Gestures.OnSwipeTouchListener;
 
 public class SwipeRight5Days extends AppCompatActivity {
@@ -53,6 +52,7 @@ public class SwipeRight5Days extends AppCompatActivity {
         tvSwipeMe.setOnTouchListener(new MyOnSwipeTouchListener(this));
     }
 
+    /*** Swipe Listener ***/
     private class MyOnSwipeTouchListener extends OnSwipeTouchListener {
         public MyOnSwipeTouchListener(Context c) {
             super(c);
