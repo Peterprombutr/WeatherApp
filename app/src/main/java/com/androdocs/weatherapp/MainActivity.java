@@ -58,11 +58,11 @@ public class MainActivity extends AppCompatActivity {
         new weatherTask().execute();
 
         //SetUp View & Gesture
-        tvSwipeMe = (RelativeLayout) findViewById(R.id.tvSwipeMe);
+        tvSwipeMe = findViewById(R.id.tvSwipeMe);
         tvSwipeMe.setOnTouchListener(new MyOnSwipeTouchListener(this));
 
         //AboutDialog
-        imgButton =(ImageButton)findViewById(R.id.action_about);
+        imgButton = findViewById(R.id.action_about);
         imgButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

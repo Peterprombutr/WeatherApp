@@ -35,25 +35,29 @@
             android:orientation="vertical"
             android:gravity="center"
             android:layout_below="@id/addressContainer">
-
-
-            <LinearLayout
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="10dp"/>
+            <Switch
+                android:id="@+id/ImperialSwitch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="start">
-                <TextView
-                    android:id="@+id/setting_language"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/setting_language"/>
-                <Space
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content"/>
-
-            </LinearLayout>
-
+                android:text="@string/setting_ImperialUnit"
+                android:textColor="@android:color/white"
+                android:textSize="24sp" />
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="10dp"/>
+            <Switch
+                android:id="@+id/ThaiLanguageSwitch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/setting_Thailanguage"
+                android:textColor="@android:color/white"
+                android:textSize="24sp" />
         </LinearLayout>
+
     </RelativeLayout>
 
     <ProgressBar
