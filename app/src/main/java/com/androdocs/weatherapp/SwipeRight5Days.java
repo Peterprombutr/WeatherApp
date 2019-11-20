@@ -10,8 +10,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 //Legacy
 import android.app.ProgressDialog;
-import android.location.Geocoder;
-import android.location.Location;
 import android.location.LocationManager;
 import android.util.Log;
 import android.view.Menu;
@@ -92,6 +90,7 @@ public class SwipeRight5Days extends AppCompatActivity {
 
         //Temp Unit
         Constants.TEMP_UNIT = " " + DegreeUnit;
+        Constants.WIND_UNIT = " " + WindUnit;
         initMember();
         initUi();
         detectLocation();

@@ -9,4 +9,5 @@ public class Constants {
     public static String LANGUAGE = "ENGLISH";
 
     public static String TEMP_UNIT = "";
+    public static String WIND_UNIT = "";
 }

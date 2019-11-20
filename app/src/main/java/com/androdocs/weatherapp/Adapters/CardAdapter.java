@@ -35,7 +35,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder
         DataObject thisObject = dataSet.get(listPosition);
         holder.timeStamp.setText(getTime(thisObject.getDt() * 1000));
         holder.textViewDescription.setText(thisObject.getWeather().get(0).getDescription());
-        holder.textViewWind.setText("Wind: " + thisObject.getWind().getSpeed() + " m/s");
+        holder.textViewWind.setText("Wind: " + thisObject.getWind().getSpeed() + Constants.WIND_UNIT);
         holder.textViewPressure.setText("Pressure: " + thisObject.getMain().getPressure() + " hPa");
         holder.textViewHumidity.setText("Humidity: " + thisObject.getMain().getHumidity() + " %");
         holder.textViewTemperature.setText(thisObject.getMain().getTemp() + Constants.TEMP_UNIT);
