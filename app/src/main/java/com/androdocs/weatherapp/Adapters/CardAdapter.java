@@ -75,11 +75,11 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder
                 break;
             case "09d":
                 holder.imageViewIcon.setImageResource(R.drawable.ic_weather_shower_rain);
-                holder.cardView.setBackgroundResource(R.color.color_hail_stroms);
+                holder.cardView.setBackgroundResource(R.color.color_hail_storms);
                 break;
             case "09n":
                 holder.imageViewIcon.setImageResource(R.drawable.ic_weather_shower_rain);
-                holder.cardView.setBackgroundResource(R.color.color_hail_stroms);
+                holder.cardView.setBackgroundResource(R.color.color_hail_storms);
                 break;
             case "10d":
                 holder.imageViewIcon.setImageResource(R.drawable.ic_weather_rain);
@@ -91,11 +91,11 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder
                 break;
             case "11d":
                 holder.imageViewIcon.setImageResource(R.drawable.ic_weather_thunderstorm);
-                holder.cardView.setBackgroundResource(R.color.color_thunderstroms);
+                holder.cardView.setBackgroundResource(R.color.color_thunderstorms);
                 break;
             case "11n":
                 holder.imageViewIcon.setImageResource(R.drawable.ic_weather_thunderstorm);
-                holder.cardView.setBackgroundResource(R.color.color_thunderstroms);
+                holder.cardView.setBackgroundResource(R.color.color_thunderstorms);
                 break;
             case "13d":
                 holder.imageViewIcon.setImageResource(R.drawable.ic_weather_snow);

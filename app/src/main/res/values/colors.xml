@@ -8,11 +8,11 @@
     <color name="colorTextSecondary">#FFFFFF</color>
     <color name="tab_indicator">#4c495d</color>
 
-    <color name="color_thunderstroms">#142d4c</color>
+    <color name="color_thunderstorms">#142d4c</color>
     <color name="color_clear_and_sunny">#ffc045</color>
     <color name="color_partly_cloudy">#df7599</color>
     <color name="color_gusty_winds">#7189bf</color>
-    <color name="color_hail_stroms">#b55400</color>
+    <color name="color_hail_storms">#b55400</color>
     <color name="color_snow">#90b8f8</color>
     <color name="color_mix_snow_and_rain">#72c6d9</color>
     <color name="color_cloudy_overnight">#385170</color>

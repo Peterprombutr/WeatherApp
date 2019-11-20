@@ -59,9 +59,6 @@
 
     <!-- Setting Screen -->
     <string name="title_next5days">Next 5 Days</string>
-
-
-
     <!-- Legacy -->
     <string name="msg_failed">Something went wrong… Please try later!</string>
     <string name="msg_gps">Please enable GPS for current location access</string>
