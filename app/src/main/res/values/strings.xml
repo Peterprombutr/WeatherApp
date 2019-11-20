@@ -7,7 +7,7 @@
     <string name="something_gone_wrong">Something went wrong</string>
 
     <!-- Splash Screen -->
-    <string name="desc_about_app">Weather forecast | ☀️ OpenWheatherMap</string>
+    <string name="desc_about_app">Weather forecast | ☀️ OpenWeatherMap</string>
     <string name="desc_app_logo">App Logo</string>
     <string name="msg_splash_bottom_tag">ICKMITL AOOP FINAL Project </string>
 
@@ -71,7 +71,6 @@
     <string name="desc_weather">Weather condition</string>
 
     <string name="temp_lable">Temperature:</string>
-    <string name="temp_unit">\u00B0C</string>
     <string name="wind_lable">Wind:</string>
     <string name="wind_unit">m/s</string>
     <string name="pressure_lable">Pressure:</string>

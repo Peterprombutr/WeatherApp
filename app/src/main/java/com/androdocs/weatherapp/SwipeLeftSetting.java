@@ -17,6 +17,7 @@ import android.widget.ToggleButton;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.androdocs.weatherapp.Gestures.OnSwipeTouchListener;
+import com.androdocs.weatherapp.utilities.Constants;
 
 import java.io.IOException;
 import java.util.List;
@@ -69,7 +70,7 @@ public class SwipeLeftSetting extends AppCompatActivity {
                 String result = input.getText().toString();
                 if (!result.isEmpty()) {
                     System.out.println(result);
-                    All_API_Keyword.CITY = result;
+                    Constants.CITY = result;
                 }
             }
         });
@@ -96,13 +97,13 @@ public class SwipeLeftSetting extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked) {
-                    All_API_Keyword.UNIT = "imperial";
+                    Constants.UNIT = "imperial";
                     SharedPreferences.Editor editor = getSharedPreferences("com.androdocs.weatherapp", MODE_PRIVATE).edit();
                     editor.putBoolean("UnitPrefImp", true);
                     editor.apply();
                 }
                 else {
-                    All_API_Keyword.UNIT = "metric";
+                    Constants.UNIT = "metric";
                     SharedPreferences.Editor editor = getSharedPreferences("com.androdocs.weatherapp", MODE_PRIVATE).edit();
                     editor.putBoolean("UnitPrefImp", false);
                     editor.apply();
@@ -115,13 +116,13 @@ public class SwipeLeftSetting extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked) {
-                    All_API_Keyword.LANGUAGE = "THAI";
+                    Constants.LANGUAGE = "THAI";
                     SharedPreferences.Editor editor = getSharedPreferences("com.androdocs.weatherapp", MODE_PRIVATE).edit();
                     editor.putBoolean("LanguagePrefThai", true);
                     editor.apply();
                 }
                 else {
-                    All_API_Keyword.LANGUAGE = "ENGLISH";
+                    Constants.LANGUAGE = "ENGLISH";
                     SharedPreferences.Editor editor = getSharedPreferences("com.androdocs.weatherapp", MODE_PRIVATE).edit();
                     editor.putBoolean("LanguagePrefThai", false);
                     editor.apply();
@@ -143,12 +144,12 @@ public class SwipeLeftSetting extends AppCompatActivity {
                     LocName = addresses.get(0).getLocality(); //+","+addresses.get(0).getCountryCode();
                     System.out.println(LocName);
 
-                    if (LocName != null) All_API_Keyword.CITY = LocName;
+                    if (LocName != null) Constants.CITY = LocName;
                 }
                 else {
                     //Placeholder Text until the System is fixed
                     System.out.println("Placeholder Location, please remove this on release");
-                    All_API_Keyword.CITY = "Lat Krabang,th";
+                    Constants.CITY = "Lat Krabang,th";
                 }
             }
         });

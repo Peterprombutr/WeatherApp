@@ -18,6 +18,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.androdocs.httprequest.HttpRequest;
 import com.androdocs.weatherapp.Gestures.OnSwipeTouchListener;
+import com.androdocs.weatherapp.utilities.Constants;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -114,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         protected String doInBackground(String... args) {
-            String response = HttpRequest.excuteGet("https://api.openweathermap.org/data/2.5/weather?q=" + All_API_Keyword.CITY + "&units=" + All_API_Keyword.UNIT + "&appid=" + All_API_Keyword.API);
+            String response = HttpRequest.excuteGet("https://api.openweathermap.org/data/2.5/weather?q=" + Constants.CITY + "&units=" + Constants.UNIT + "&appid=" + Constants.API_KEY);
             return response;
         }
 
@@ -132,8 +133,8 @@ public class MainActivity extends AppCompatActivity {
                 String temp = main.getString("temp") + DegreeUnit;
                 String tempMin = "Min Temp: " + main.getString("temp_min") + DegreeUnit;
                 String tempMax = "Max Temp: " + main.getString("temp_max") + DegreeUnit;
-                String pressure = main.getString("pressure") + " hPa";
-                String humidity = main.getString("humidity") + " %";
+                String pressure = main.getString("pressure") + " a";
+                String humidity = main.getString("humidity") + "%";
 
                 Long sunrise = sys.getLong("sunrise");
                 Long sunset = sys.getLong("sunset");
@@ -192,11 +193,11 @@ public class MainActivity extends AppCompatActivity {
         //Metric-Imperial
         Resources res = getResources();
         String[] tempUnitArray= res.getStringArray(R.array.temperature_degree);
-        if(All_API_Keyword.UNIT=="metric"){ DegreeUnit = tempUnitArray[0]; }
+        if(Constants.UNIT=="metric"){ DegreeUnit = tempUnitArray[0]; }
         else{ DegreeUnit = tempUnitArray[1]; }
 
         String[] windUnitArray= res.getStringArray(R.array.wind_degree);
-        if(All_API_Keyword.UNIT=="metric"){ WindUnit = windUnitArray[0]; }
+        if(Constants.UNIT=="metric"){ WindUnit = windUnitArray[0]; }
         else{ WindUnit = windUnitArray[1]; }
 
         //AboutDialog

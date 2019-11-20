@@ -2,6 +2,7 @@ package com.androdocs.weatherapp;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.RelativeLayout;
@@ -47,9 +48,6 @@ public class SwipeRight5Days extends AppCompatActivity {
 
     LocationManager locationManager;
     ProgressDialog progressDialog;
-    Location location;
-    double latitude, longitude;
-    Geocoder geocoder;
     StringBuilder addressStringBuilder;
 
     List<DataObject> weatherList;
@@ -69,6 +67,7 @@ public class SwipeRight5Days extends AppCompatActivity {
     ConstraintLayout layout;
 
     RelativeLayout tvSwipeMe;
+    String DegreeUnit, WindUnit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,10 +80,22 @@ public class SwipeRight5Days extends AppCompatActivity {
         tvSwipeMe.setOnTouchListener(new MyOnSwipeTouchListener(this));
         */
 
-        Constants.TEMP_UNIT = " " + getResources().getString(R.string.temp_unit);
+        //Metric-Imperial
+        Resources res = getResources();
+        String[] tempUnitArray= res.getStringArray(R.array.temperature_degree);
+        if(Constants.UNIT=="metric"){ DegreeUnit = tempUnitArray[0]; }
+        else{ DegreeUnit = tempUnitArray[1]; }
+
+        String[] windUnitArray= res.getStringArray(R.array.wind_degree);
+        if(Constants.UNIT=="metric"){ WindUnit = windUnitArray[0]; }
+        else{ WindUnit = windUnitArray[1]; }
+
+        //Temp Unit
+        Constants.TEMP_UNIT = " " + DegreeUnit;
         initMember();
         initUi();
         detectLocation();
+
         host = findViewById(R.id.tabHostT);
         host.setup();
 
@@ -144,7 +155,7 @@ public class SwipeRight5Days extends AppCompatActivity {
 
     private void detectLocation() {
         addressStringBuilder = new StringBuilder();
-        addressStringBuilder.append(All_API_Keyword.CITY);
+        addressStringBuilder.append(Constants.CITY);
     }
 
     @Override
@@ -162,7 +173,7 @@ public class SwipeRight5Days extends AppCompatActivity {
 
     private void getWeather(StringBuilder addressStringBuilder) {
         progressDialog.show();
-        Call<Forecast> call = Utility.getApis().getWeatherForecastData(addressStringBuilder, Constants.API_KEY, Constants.UNITS);
+        Call<Forecast> call = Utility.getApis().getWeatherForecastData(addressStringBuilder, Constants.API_KEY, Constants.UNIT);
         call.enqueue(new Callback<Forecast>() {
             @Override
             public void onResponse(Call<Forecast> call, Response<Forecast> response) {
@@ -185,7 +196,7 @@ public class SwipeRight5Days extends AppCompatActivity {
                         for (DataObject data : weatherList) {
                             Log.i("ELEMENT", getDate(data.getDt() * 1000));
                             if (getDate(data.getDt() * 1000).equals(day)) {
-                                Log.i("ADDEDDD", getDate(data.getDt() * 1000));
+                                Log.i("ADDED", getDate(data.getDt() * 1000));
                                 temp.add(data);
                             }
                         }
