@@ -18,7 +18,6 @@ import java.util.Date;
 import java.util.List;
 
 public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder> {
-
     private List<DataObject> dataSet;
 
     public CardAdapter(List<DataObject> data) {
@@ -142,14 +141,14 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder
 
         public CardViewHolder(View itemView) {
             super(itemView);
-            this.cardView = (CardView) itemView.findViewById(R.id.card_view);
-            this.timeStamp = (TextView) itemView.findViewById(R.id.timeStamp);
-            this.textViewDescription = (TextView) itemView.findViewById(R.id.textDescription);
-            this.textViewWind = (TextView) itemView.findViewById(R.id.wind);
-            this.textViewPressure = (TextView) itemView.findViewById(R.id.pressure);
-            this.textViewHumidity = (TextView) itemView.findViewById(R.id.humidity);
-            this.textViewTemperature = (TextView) itemView.findViewById(R.id.temp);
-            this.imageViewIcon = (ImageView) itemView.findViewById(R.id.icon);
+            this.cardView = itemView.findViewById(R.id.card_view);
+            this.timeStamp = itemView.findViewById(R.id.timeStamp);
+            this.textViewDescription = itemView.findViewById(R.id.textDescription);
+            this.textViewWind = itemView.findViewById(R.id.wind);
+            this.textViewPressure = itemView.findViewById(R.id.pressure);
+            this.textViewHumidity = itemView.findViewById(R.id.humidity);
+            this.textViewTemperature = itemView.findViewById(R.id.temp);
+            this.imageViewIcon = itemView.findViewById(R.id.icon);
         }
     }
 }
