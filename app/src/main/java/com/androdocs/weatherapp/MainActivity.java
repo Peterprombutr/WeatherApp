@@ -132,8 +132,8 @@ public class MainActivity extends AppCompatActivity {
                 String temp = main.getString("temp") + DegreeUnit;
                 String tempMin = "Min Temp: " + main.getString("temp_min") + DegreeUnit;
                 String tempMax = "Max Temp: " + main.getString("temp_max") + DegreeUnit;
-                String pressure = main.getString("pressure");
-                String humidity = main.getString("humidity");
+                String pressure = main.getString("pressure") + " hPa";
+                String humidity = main.getString("humidity") + " %";
 
                 Long sunrise = sys.getLong("sunrise");
                 Long sunset = sys.getLong("sunset");
