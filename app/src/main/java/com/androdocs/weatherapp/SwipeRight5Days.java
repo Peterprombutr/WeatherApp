@@ -142,26 +142,6 @@ public class SwipeRight5Days extends AppCompatActivity {
     }
     */
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-    }
-
     private void detectLocation() {
         addressStringBuilder = new StringBuilder();
         addressStringBuilder.append(All_API_Keyword.CITY);
@@ -246,6 +226,7 @@ public class SwipeRight5Days extends AppCompatActivity {
         layout = findViewById(R.id.layoutWeather);
     }
 
+    //Init the rest
     private void initMember() {
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         weatherList = new ArrayList<>();
