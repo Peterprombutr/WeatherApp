@@ -4,7 +4,6 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class Weather {
-
     @SerializedName("id")
     @Expose
     private int id;
@@ -49,5 +48,4 @@ public class Weather {
     public void setIcon(String icon) {
         this.icon = icon;
     }
-
 }

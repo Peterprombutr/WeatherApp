@@ -11,15 +11,9 @@ public class City {
     @SerializedName("name")
     @Expose
     private String name;
-    @SerializedName("coord")
-    @Expose
-    private com.androdocs.weatherapp.models.Coord coord;
     @SerializedName("country")
     @Expose
     private String country;
-    @SerializedName("population")
-    @Expose
-    private int population;
 
     public int getId() {
         return id;
@@ -37,28 +31,7 @@ public class City {
         this.name = name;
     }
 
-    public com.androdocs.weatherapp.models.Coord getCoord() {
-        return coord;
-    }
-
-    public void setCoord(com.androdocs.weatherapp.models.Coord coord) {
-        this.coord = coord;
-    }
-
     public String getCountry() {
         return country;
     }
-
-    public void setCountry(String country) {
-        this.country = country;
-    }
-
-    public int getPopulation() {
-        return population;
-    }
-
-    public void setPopulation(int population) {
-        this.population = population;
-    }
-
 }
