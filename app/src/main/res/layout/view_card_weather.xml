@@ -33,7 +33,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:layout_marginRight="75dp"
-                    android:text="Android Name"
+                    android:text="@string/placeholder_lastUpdateTime"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textColor="#ffffff"
                     android:textSize="16sp"
@@ -45,7 +45,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
 
-                    android:text="Android Version"
+                    android:text="@string/placeholder_weatherStatus"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="#ffffff"
                     android:textSize="@dimen/shorttextsize" />
@@ -57,7 +57,7 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="10dp"
 
-                    android:text="Android Version"
+                    android:text="@string/placeholder_windSpeed"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="#ffffff"
                     android:textSize="@dimen/shorttextsize" />
@@ -69,7 +69,7 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="4dp"
 
-                    android:text="Android Version"
+                    android:text="@string/placeholder_pressure"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="#ffffff"
                     android:textSize="@dimen/shorttextsize" />
@@ -81,7 +81,7 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="4dp"
 
-                    android:text="Android Version"
+                    android:text="@string/placeholder_humidity"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="#ffffff"
                     android:textSize="@dimen/shorttextsize" />
@@ -108,7 +108,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="11dp"
-                android:text="Android Version"
+                android:text="@string/placeholder_averageTemp"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="#ffffff"
                 android:textSize="16sp" />
