@@ -9,26 +9,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 //Legacy
 import android.Manifest;
-import android.app.AlertDialog;
 import android.app.ProgressDialog;
-import android.content.DialogInterface;
-import android.content.res.TypedArray;
-import android.graphics.Color;
-import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
-import android.text.InputType;
 import android.util.Log;
 import android.view.Menu;
-import android.view.MenuItem;
-import android.webkit.WebView;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TabHost;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.widget.Toolbar;
@@ -49,7 +37,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Locale;
 import java.util.Set;
 
 import retrofit2.Call;
@@ -82,13 +69,9 @@ public class SwipeRight5Days extends AppCompatActivity {
     TabHost host;
 
     Toolbar toolbar;
-    ImageView imageViewWeatherIcon;
-
     ConstraintLayout layout;
 
     private static long back_pressed;
-
-
 
 
     RelativeLayout tvSwipeMe;
@@ -108,7 +91,7 @@ public class SwipeRight5Days extends AppCompatActivity {
         initMember();
         initUi();
         detectLocation();
-        host = (TabHost) findViewById(R.id.tabHostT);
+        host = findViewById(R.id.tabHostT);
         host.setup();
 
         Date date = new Date();
@@ -230,19 +213,8 @@ public class SwipeRight5Days extends AppCompatActivity {
         }
 
         try {
-            geocoder = new Geocoder(this, Locale.getDefault());
-            List<Address> addressList = geocoder.getFromLocation(latitude, longitude, 1);
             addressStringBuilder = new StringBuilder();
-            if (addressList.size() > 0) {
-                Address locationAddress = addressList.get(0);
-                for (int i = 0; i <= locationAddress.getMaxAddressLineIndex(); i++) {
-                    locationAddress.getAddressLine(i);
-                    /*remove comment if you subLocality need to be shown*/
-                    // addressStringBuilder.append(locationAddress.getSubLocality()).append(",");
-                    addressStringBuilder.append(locationAddress.getLocality());
-                }
-                /*TODO Set the current location to display*/
-            }
+            addressStringBuilder.append(All_API_Keyword.CITY);
         } catch (Exception e) {
             Log.e(TAG, "Exception: " + e.getMessage());
         }
@@ -252,59 +224,6 @@ public class SwipeRight5Days extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.toolbar_menus, menu);
         return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_search:
-                searchByCityName();
-                return true;
-
-            default:
-                // If we got here, the user's action was not recognized.
-                // Invoke the superclass to handle it.
-                return super.onOptionsItemSelected(item);
-
-        }
-    }
-
-    /**
-     * This method shows a dialog to enter the city name to search
-     */
-    private void searchByCityName() {
-        android.app.AlertDialog.Builder alert = new android.app.AlertDialog.Builder(this);
-        alert.setTitle(this.getString(R.string.search_title));
-        final EditText input = new EditText(this);
-        input.setInputType(InputType.TYPE_CLASS_TEXT);
-        input.setMaxLines(1);
-        input.setSingleLine(true);
-        alert.setView(input);
-        alert.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int whichButton) {
-                String result = input.getText().toString();
-                if (!result.isEmpty()) {
-                    fetchUpdateOnSearched(result);
-                }
-            }
-        });
-        alert.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int whichButton) {
-                // Cancelled
-            }
-        });
-        alert.show();
-    }
-
-    /**
-     * This method call the getWeather api to searched the weather
-     *
-     * @param cityName
-     */
-    private void fetchUpdateOnSearched(String cityName) {
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append(cityName);
-        getWeather(stringBuilder);
     }
 
     /**
