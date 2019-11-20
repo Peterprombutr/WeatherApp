@@ -8,11 +8,9 @@ import android.widget.RelativeLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
 //Legacy
-import android.Manifest;
 import android.app.ProgressDialog;
 import android.location.Geocoder;
 import android.location.Location;
-import android.location.LocationListener;
 import android.location.LocationManager;
 import android.util.Log;
 import android.view.Menu;
@@ -21,7 +19,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -70,9 +67,6 @@ public class SwipeRight5Days extends AppCompatActivity {
 
     Toolbar toolbar;
     ConstraintLayout layout;
-
-    private static long back_pressed;
-
 
     RelativeLayout tvSwipeMe;
 
@@ -149,13 +143,6 @@ public class SwipeRight5Days extends AppCompatActivity {
     */
 
     @Override
-    public void onBackPressed() {
-        if (back_pressed + 2000 > System.currentTimeMillis()) super.onBackPressed();
-        else Toast.makeText(this, "Press once again to exit!", Toast.LENGTH_SHORT).show();
-        back_pressed = System.currentTimeMillis();
-    }
-
-    @Override
     protected void onStart() {
         super.onStart();
     }
@@ -175,49 +162,9 @@ public class SwipeRight5Days extends AppCompatActivity {
         super.onDestroy();
     }
 
-    /**
-     * This method gets the device current location to call the weather api by default city
-     */
     private void detectLocation() {
-        LocationListener locationListener = new LocationListener() {
-            @Override
-            public void onLocationChanged(Location location) {
-                latitude = location.getLatitude();
-                longitude = location.getLongitude();
-            }
-
-            @Override
-            public void onStatusChanged(String s, int i, Bundle bundle) {
-
-            }
-
-            @Override
-            public void onProviderEnabled(String s) {
-
-            }
-
-            @Override
-            public void onProviderDisabled(String s) {
-                Toast.makeText(SwipeRight5Days.this, "Connect to network", Toast.LENGTH_SHORT).show();
-            }
-        };
-
-        int permissionCheck = ContextCompat.checkSelfPermission(SwipeRight5Days.this, Manifest.permission.ACCESS_FINE_LOCATION);
-        if (permissionCheck == 0) {
-            location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
-            locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, locationListener);
-        }
-        if (location != null) {
-            latitude = location.getLatitude();
-            longitude = location.getLongitude();
-        }
-
-        try {
-            addressStringBuilder = new StringBuilder();
-            addressStringBuilder.append(All_API_Keyword.CITY);
-        } catch (Exception e) {
-            Log.e(TAG, "Exception: " + e.getMessage());
-        }
+        addressStringBuilder = new StringBuilder();
+        addressStringBuilder.append(All_API_Keyword.CITY);
     }
 
     @Override
@@ -226,12 +173,6 @@ public class SwipeRight5Days extends AppCompatActivity {
         return true;
     }
 
-    /**
-     * This method get the Date
-     *
-     * @param milliTime
-     * @return
-     */
     private String getDate(Long milliTime) {
         Date currentDate = new Date(milliTime);
         SimpleDateFormat df = new SimpleDateFormat("dd");
@@ -239,12 +180,6 @@ public class SwipeRight5Days extends AppCompatActivity {
         return date;
     }
 
-    /**
-     * This method call the openwheathermap api by city name and onResponseSuccess bind the data
-     * with associated model and set the data to show awesome view to user.
-     *
-     * @param addressStringBuilder
-     */
     private void getWeather(StringBuilder addressStringBuilder) {
         progressDialog.show();
         Call<Forecast> call = Utility.getApis().getWeatherForecastData(addressStringBuilder, Constants.API_KEY, Constants.UNITS);
@@ -302,9 +237,6 @@ public class SwipeRight5Days extends AppCompatActivity {
         });
     }
 
-    /**
-     * This method initialize the all ui member variables
-     */
     private void initUi() {
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage(getString(R.string.progress));
@@ -314,9 +246,6 @@ public class SwipeRight5Days extends AppCompatActivity {
         layout = findViewById(R.id.layoutWeather);
     }
 
-    /**
-     * This method initialize the all member variables
-     */
     private void initMember() {
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         weatherList = new ArrayList<>();
