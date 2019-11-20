@@ -261,10 +261,6 @@ public class SwipeRight5Days extends AppCompatActivity {
                 searchByCityName();
                 return true;
 
-            case R.id.action_about:
-                showAboutDialog();
-                return true;
-
             default:
                 // If we got here, the user's action was not recognized.
                 // Invoke the superclass to handle it.
@@ -309,39 +305,6 @@ public class SwipeRight5Days extends AppCompatActivity {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append(cityName);
         getWeather(stringBuilder);
-    }
-
-    /**
-     * This method shows an about detail of the app.
-     */
-    private void showAboutDialog() {
-        AlertDialog.Builder alert = new AlertDialog.Builder(this);
-        alert.setTitle(R.string.app_name);
-
-        final WebView webView = new WebView(this);
-        String about = "<p>Weather App</p>" +
-                "<p>Developed by 61090020 610900023</p>" +
-                "<p>Data provided by <a href='https://openweathermap.org/'>OpenWeatherMap</a>, under the <a href='http://creativecommons.org/licenses/by-sa/2.0/'>Creative Commons license</a>";
-        TypedArray ta = obtainStyledAttributes(new int[]{android.R.attr.textColorPrimary, R.attr.colorAccent});
-        String textColor = String.format("#%06X", (0xFFFFFF & ta.getColor(0, Color.BLACK)));
-        String accentColor = String.format("#%06X", (0xFFFFFF & ta.getColor(1, Color.BLUE)));
-        ta.recycle();
-        about = "<style media=\"screen\" type=\"text/css\">" +
-                "body {\n" +
-                "    color:" + "black" + ";\n" +
-                "}\n" +
-                "a:link {color:" + "black" + "}\n" +
-                "</style>" +
-                about;
-        webView.setBackgroundColor(Color.TRANSPARENT);
-        webView.loadData(about, "text/html", "UTF-8");
-        alert.setView(webView);
-        alert.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int whichButton) {
-
-            }
-        });
-        alert.show();
     }
 
     /**
